@@ -9,6 +9,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@master
+            - uses: echo "# Changelog" > changelog.md && git log --pretty=format:"- %s" ${{ github.ref }} >> changelog.md
             - uses: docker://pandoc/latex:2.9
               with:
                   args: pandoc -d pandoc_def.yml
@@ -22,6 +23,7 @@ jobs:
                   release_name: Prerelease ${{ github.ref }}
                   draft: false
                   prerelease: true
+                  body_path: ./changelog.md
             - id: upload_prerelease
               name: Upload prerelease
               uses: actions/upload-release-asset@v1
