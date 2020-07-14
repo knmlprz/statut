@@ -1,0 +1,20 @@
+from: markdown
+to: pdf
+
+output-file: statut.pdf
+input-files:
+    - main.md
+standalone: true
+self-contained: true
+variables:
+    documentclass: article
+metadata:
+    lang: pl
+    title: STATUT KOŁA NAUKOWEGO STUDENTÓW w Politechnice Rzeszowskiej
+    papersize: a4
+tab-stop: 4
+eol: lf
+number-sections: true
+dpi: 300
+wrap: auto
+top-level-division: section

@@ -1,0 +1,35 @@
+name: prerelease
+on:
+    push:
+        tags:
+            - 'v*rc'
+jobs:
+    build:
+        name: prerelease
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@master
+            - uses: docker://pandoc/latex:2.9
+              with:
+                  args: pandoc -d pandoc_def.yml
+            - id: create_prerelease
+              name: Create prerelease
+              uses: actions/create-release@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  tag_name: ${{ github.ref }}
+                  release_name: Prerelease ${{ github.ref }}
+                  draft: false
+                  prerelease: true
+            - id: upload_prerelease
+              name: Upload prerelease
+              uses: actions/upload-release-asset@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  upload_url: ${{ steps.create_prerelease.outputs.upload_url }}
+                  asset_path: ./statut.pdf
+                  asset_name: statut.pdf
+                  asset_content_type: application/pdf
+

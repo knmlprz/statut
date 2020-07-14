@@ -1,0 +1,36 @@
+name: release
+on:
+    push:
+        tags:
+            - 'v*'
+            - '!v*rc'
+jobs:
+    build:
+        name: release
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@master
+            - uses: docker://pandoc/latex:2.9
+              with:
+                  args: pandoc -d pandoc_def.yml
+            - id: create_release
+              name: Create release
+              uses: actions/create-release@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  tag_name: ${{ github.ref }}
+                  release_name: Release ${{ github.ref }}
+                  draft: false
+                  prerelease: false
+            - id: upload_release
+              name: Upload release
+              uses: actions/upload-release-asset@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  upload_url: ${{ steps.create_release.outputs.upload_url }}
+                  asset_path: ./statut.pdf
+                  asset_name: statut.pdf
+                  asset_content_type: application/pdf
+
