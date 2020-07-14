@@ -5,15 +5,15 @@ na temat:
     - uczenia maszynowego;
     - sieci neuronowych;
     - analizy dużych zbiorów danych;
+    - wizualizacji danych;
     - popularyzacja indywidualnych osiągnięć członków Koła w powyższym zakresie.
-
-1. Powyższe cele Koło realizuje poprzez:
-    - prowadzenie działalności w zakresie;
-    udział w badaniach naukowych prowadzonych w ***TODO***;
-    - organizowanie:
-        - seminariów
-        - konferencji
-        - odczytów związanych z zakresem działalności Koła
+1. Powyższe cele Koło realizuje poprzez prowadzenie działalności w zakresie:
+    - udział oraz organizację:
+        - badań naukowych;
+        - hackathonów;
+        - seminariów;
+        - konferencji;
+        - odczytów związanych z zakresem działalności Koła;
     - udział w podobnych inicjatywach organizowanych przez inne podmioty.
 1. Członkiem Koła może być każdy student Politechniki Rzeszowskiej zainteresowany prowadzoną problematyką/działalnością.
 1. Członkami honorowymi Koła mogą być absolwenci Politechniki Rzeszowskiej lub nauczyciele akademiccy, a także inne osoby, które przyczyniły się do rozwoju Koła.
