@@ -92,6 +92,6 @@ na temat:
     1. na wniosek prorektora ds. kształcenia, jeżeli w działalności Koła rażąco
        lub uporczywie są naruszane przepisy prawne, Statut Politechniki
        Rzeszowskiej lub statut.
-    1. Statut, ulega zmianie na wniosek przewodniczącego uchwalony przez walne
+1. Statut, ulega zmianie na wniosek przewodniczącego uchwalony przez walne
        zebranie, zaopiniowany przez opiekuna naukowego, samorząd studencki
        oraz zatwierdzony przez rektora. 
