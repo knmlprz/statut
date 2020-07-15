@@ -13,6 +13,7 @@ jobs:
             - uses: docker://pandoc/latex:2.9
               with:
                   args: pandoc -d pandoc_def.yml
+            - run: (echo "# Changelog" && git log --pretty=format:"- %s" v20.07.14.1-rc | cat) > CHANGELOG.md
             - id: create_release
               name: Create release
               uses: actions/create-release@v1
@@ -23,6 +24,7 @@ jobs:
                   release_name: Release ${{ github.ref }}
                   draft: false
                   prerelease: false
+                  body_path: ./changelog.md
             - id: upload_release
               name: Upload release
               uses: actions/upload-release-asset@v1
