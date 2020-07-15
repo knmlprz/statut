@@ -12,7 +12,7 @@ jobs:
             - uses: docker://pandoc/latex:2.9
               with:
                   args: pandoc -d pandoc_def.yml
-            - run: (echo "# Changelog" && git log --pretty=format:"- %s" v20.07.14.1-rc | cat) > CHANGELOG.md
+            - run: (echo "# Changelog" && git log --pretty=format:"- %s" ${{ github.ref }} | cat) > CHANGELOG.md
             - id: create_prerelease
               name: Create prerelease
               uses: actions/create-release@v1
@@ -23,7 +23,7 @@ jobs:
                   release_name: Prerelease ${{ github.ref }}
                   draft: false
                   prerelease: true
-                  body_path: ./changelog.md
+                  body_path: ./CHANGELOG.md
             - id: upload_prerelease
               name: Upload prerelease
               uses: actions/upload-release-asset@v1
